@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="app-header">
+      <button id="theme-toggle" aria-label="Switch to dark mode">🌙 Dark Mode</button>
+      <button id="settings-open">⚙ Settings</button>
+    </header>
+
+    <section id="greeting">
+      <p id="greeting-time"></p>
+      <p id="greeting-date"></p>
+      <h1 id="greeting-text"></h1>
+    </section>
+
+    <section id="timer">
+      <div id="timer-display">25:00</div>
+      <div id="timer-controls">
+        <button id="timer-start">Start</button>
+        <button id="timer-stop">Stop</button>
+        <button id="timer-reset">Reset</button>
+      </div>
+      <div id="timer-completion" style="display:none;">Session complete! Great work!</div>
+      <div id="timer-deferred-notice" style="display:none;">Duration change will apply after current session.</div>
+    </section>
+
+    <section id="tasks">
+      <h2>Tasks</h2>
+      <div id="task-input-row">
+        <input id="task-input" type="text" placeholder="Add a task..." />
+        <button id="task-add-btn">Add</button>
+      </div>
+      <span id="task-error" style="display:none;"></span>
+      <ul id="task-list"></ul>
+    </section>
+
+    <section id="quick-links">
+      <h2>Quick Links</h2>
+      <div id="quick-links-error" style="display:none;">
+        Could not save links — storage may be full or unavailable.
+      </div>
+      <div id="link-input-row">
+        <input id="link-label-input" type="text" placeholder="Label (e.g. GitHub)" />
+        <input id="link-url-input" type="url" placeholder="https://example.com" />
+        <button id="link-add-btn">Add</button>
+      </div>
+      <span id="link-validation" style="display:none;"></span>
+      <div id="links-container"></div>
+    </section>
+
+    <div id="settings-panel" style="display:none;">
+      <h2>Settings</h2>
+      <div class="settings-field">
+        <label for="settings-display-name">Display Name</label>
+        <input id="settings-display-name" type="text" maxlength="50" placeholder="Your name (optional)" />
+        <span id="settings-name-error" style="display:none;"></span>
+      </div>
+      <div class="settings-field">
+        <label for="settings-pomo-duration">Pomodoro Duration (minutes, 1–120)</label>
+        <input id="settings-pomo-duration" type="number" min="1" max="120" step="1" />
+        <span id="settings-duration-error" style="display:none;"></span>
+        <span id="settings-duration-deferred" style="display:none;">Duration change will apply after the current session ends.</span>
+      </div>
+      <div class="settings-actions">
+        <button id="settings-save">Save</button>
+        <button id="settings-close">Close</button>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
